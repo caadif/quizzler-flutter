@@ -26,32 +26,14 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
 
-  List<Icon> scoreKeeper =[
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
+  List<Icon> scoreKeeper =[];
+  List<String> questions =[
+    'Qofku marka uu waynaado geeso ayuu yeeshaa.',
+    'Dumarku waxay aad u jecel yihiin in lala guursado.',
+    'Dad waxaa jira aan la aamini karin.',
   ];
+
+  int questionsNumber =0;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +47,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
+                questions[questionsNumber],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -90,12 +72,11 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                //The User picked true.
-                setState(() {
-                  scoreKeeper.add(
-                    Icon(Icons.check, color: Colors.green,),
-                  );
+                setState((){
+                  questionsNumber++;
                 });
+
+                print(questionsNumber);
               },
             ),
           ),
@@ -109,12 +90,11 @@ class _QuizPageState extends State<QuizPage> {
               ),
               ),
               onPressed: (){
-                //The User picked true.
-                setState(() {
-                  scoreKeeper.add(
-                    Icon(Icons.close, color: Colors.red,),
-                  );
+                //The User picked false.
+                setState((){
+                  questionsNumber++;
                 });
+                print(questionsNumber);
               },
               style: ElevatedButton.styleFrom(primary: Colors.red,
               ),
