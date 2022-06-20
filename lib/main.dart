@@ -90,6 +90,12 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
+                //The User picked true.
+                setState(() {
+                  scoreKeeper.add(
+                    Icon(Icons.check, color: Colors.green,),
+                  );
+                });
               },
             ),
           ),
@@ -98,12 +104,18 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: EdgeInsets.all(15.0),
             child: ElevatedButton(
-
               child: const Text('False', style: TextStyle(
                 fontSize: 20.0, color: Colors.white,
               ),
               ),
-              onPressed: (){},
+              onPressed: (){
+                //The User picked true.
+                setState(() {
+                  scoreKeeper.add(
+                    Icon(Icons.close, color: Colors.red,),
+                  );
+                });
+              },
               style: ElevatedButton.styleFrom(primary: Colors.red,
               ),
             ),
